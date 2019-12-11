@@ -5,13 +5,24 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+  steps:
+  - uses: actions/checkout@v1
+  - name: FTP Deploy
+    uses: SamKirkland/FTP-Deploy-Action@2.0.0
+    env:
+      # FTP server name (you may need to specify a port)
+      FTP_SERVER: ta18toose.itmajakas.ee
+      # FTP account username
+      FTP_USERNAME: ketoose.TA18Toose.itmajakas.ee
+      # FTP account password
+      FTP_PASSWORD: ${{secrets.SALASOODIK}}
+      # Protocol used to deploy (ftp or sftp)
+      method:
+      # The port used to connect to server
+      PORT: 21 
+      # The local folder to copy, defaults to root project folder
+      REMOTE_DIR: /Kapityhjendamine 
+      
+      
