@@ -1,0 +1,40 @@
+h1{
+    text-align: center;
+    font-family: Roboto;
+}
+.components{
+    display: flex; 
+    flex-wrap: wrap;
+
+}
+.ingredient{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    
+    
+}
+.components img{
+    width: 100px;
+    height: 100px;
+}
+.search {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    color: black;
+    background-color: bisque;
+}
+.hints{
+    display: flex;
+}
+.hints input{
+    width: 100%;
+}
+body{
+    background-color: beige;
+}
