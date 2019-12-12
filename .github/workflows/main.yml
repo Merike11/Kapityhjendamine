@@ -18,11 +18,7 @@ jobs:
         FTP_USERNAME: ketoose.TA18Toose.itmajakas.ee
         # FTP account password
         FTP_PASSWORD: ${{secrets.SALASOODIK}}
-        # Protocol used to deploy (ftp or sftp)
-        method:
-        # The port used to connect to server
-        PORT: 21 
         # The local folder to copy, defaults to root project folder
-        REMOTE_DIR: /Kapityhjendamine 
+        REMOTE_DIR: Kapityhjendamine 
         
         
