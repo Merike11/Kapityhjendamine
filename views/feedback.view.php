@@ -10,6 +10,14 @@
 
 <h1>Tagasiside</h1>
 
+<table border="1">
+  <tr>
+      <th>Sisu</th>
+      <th>Lisatud</th>
+      <th>Muudetud</th>
+      <th>Kustutatud</th>
+  </tr>
+  
 <form method="POST" action="/add-feedback">
     <input type="text" name="subject" placeholder="Sisu">
     <textarea name="body" class="form-control"></textarea>

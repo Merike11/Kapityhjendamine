@@ -12,12 +12,31 @@ class QueryBuilder
     
     public function selectAll($table)
     {
-        $statement = $this->pdo->prepare("select * from {$table}");
+        $statement = $this->pdo->prepare("SELECT * FROM {$table}");
 
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
+
+    public function selectById($table, $id = 0)
+    {
+        $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE ID= :id");
+
+        $statement->execute([':id' => $id]);
+
+        $result = $statement->fetchAll(PDO::FETCH_CLASS);
+        return empty($result) ? [] : reset($result);
+         
+    }
+    public function deleteById($table, $id = 0)
+    {
+        $statement = $this->pdo->prepare("DELETE FROM {$table} WHERE ID= :id");
+
+        return $statement->execute([':id' => $id]);
+            
+    }
+    
     public function insert($table, $parameters)
     {
         $sql = sprintf(
