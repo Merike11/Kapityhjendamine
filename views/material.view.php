@@ -16,8 +16,8 @@
 	<tr>
 	<td><?= $ingredient->name; ?></td>
 	<td><?= $ingredient->added; ?></td>
-	<td><a href= "/material/edit/?id=<?= $ingredient->ID; ?>">Muuda</a></td>
-	<td><a href= "/material/delete/?id=<?= $ingredient->ID; ?>">Kustuta</a></td>
+	<td><a href= "/material/edit?id=<?= $ingredient->ID; ?>">Muuda</a></td>
+	<td><a href= "/material/delete?id=<?= $ingredient->ID; ?>">Kustuta</a></td>
 	</tr>
 <?php endforeach; endif; ?>
 </table>

@@ -8,6 +8,8 @@ $router->get('addmaterial', 'MaterialController@index');
 $router->get('feedback', 'PagesController@feedback');
 $router->post('addmaterial', 'MaterialController@store');
 $router->post('add-feedback', 'controllers/add-feedback.php');
+$router->post('material/editingredient', 'MaterialController@editingredient');
 
 $router->get('material/delete', 'MaterialController@delete');
 $router->get('material/edit', 'MaterialController@edit');
+

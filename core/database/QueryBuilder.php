@@ -37,6 +37,23 @@ class QueryBuilder
             
     }
     
+    public function updateById($table, $id, $parameters)
+    {
+        $updateCols = [];
+        foreach($parameters as $key => $value) {
+            $updateCols[] = $key . '=:' . $key;
+        }
+        $sql = sprintf(
+            'UPDATE %s SET %s WHERE id=%s',
+            $table,
+            implode(', ', $updateCols),
+            $id
+        );
+
+        $statement = $this->pdo->prepare($sql);
+        return $statement -> execute($parameters);
+            
+    }
     public function insert($table, $parameters)
     {
         $sql = sprintf(
