@@ -71,4 +71,14 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+
+    public function getUserByEmail ($table, $username) {
+        $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE username= :username LIMIT 1");
+
+        $statement->execute([':username' => $username]);
+
+        $result = $statement->fetchAll(PDO::FETCH_CLASS);
+        
+        return empty($result) ? [] : reset($result);  
+    }      
 }

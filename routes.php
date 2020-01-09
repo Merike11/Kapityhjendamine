@@ -13,3 +13,5 @@ $router->post('material/editingredient', 'MaterialController@editingredient');
 $router->get('material/delete', 'MaterialController@delete');
 $router->get('material/edit', 'MaterialController@edit');
 
+$router->get('login', 'UserController@index');
+$router->post('login', 'UserController@login');
