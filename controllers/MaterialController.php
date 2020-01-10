@@ -19,10 +19,12 @@ class MaterialController
     }
     public function edit()
     {
-        global $app;
-        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $ingredient = $app['database']->selectById('ingredients', $id);
-        return view('material_edit', compact('ingredient')); 
+        if($_SESSION["is_admin"]) {
+            global $app;
+            $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+            $ingredient = $app['database']->selectById('ingredients', $id);
+            return view('material_edit', compact('ingredient')); 
+        } 
              
     }    
     public function editingredient()

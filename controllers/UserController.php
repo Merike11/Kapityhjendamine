@@ -24,12 +24,20 @@ class UserController
                 //authenticate user
                 
                 $user= $this->auth($username, $password);
-            }
-            if($user) {
-                echo 'Registreeri kasutaja!';
-            } 
-            else {
-                echo "Midagi läks valesti!";
+            
+                if($user) {
+                    
+                    $_SESSION["is_logged_in"] = true;
+
+                    if($user->role === 'admin'){
+                        $_SESSION["is_admin"] = true;                     
+                                                      
+                    }
+                                   
+                } 
+                else {
+                    echo "Midagi läks valesti!";
+                }
             }
         }
         print_r($_SESSION);
@@ -48,5 +56,10 @@ class UserController
         }
 
         return false;
+    }
+    public function logout()
+    {
+        session_destroy();
+        header('Location: /login');
     }     
 }

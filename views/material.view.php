@@ -21,10 +21,14 @@
 	</tr>
 <?php endforeach; endif; ?>
 </table>
+	
+<?php if($_SESSION["is_logged_in"]) :?> 
 	<h1>Materjali lisamine</h1>
+	<form method= "POST" action= "addmaterial">
+		<input name= "material_name">
+	</form> 
+<?php endif; ?>
 
-<form method= "POST" action= "addmaterial">
-	<input name= "material_name">
-</form>
+
 
 <?php require('partials/footer.php'); ?>

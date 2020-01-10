@@ -15,3 +15,5 @@ $router->get('material/edit', 'MaterialController@edit');
 
 $router->get('login', 'UserController@index');
 $router->post('login', 'UserController@login');
+
+$router->get('logout', 'UserController@logout');
