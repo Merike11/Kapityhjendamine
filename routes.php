@@ -17,3 +17,6 @@ $router->get('login', 'UserController@index');
 $router->post('login', 'UserController@login');
 
 $router->get('logout', 'UserController@logout');
+
+$router->get('register', 'UserController@register');
+$router->post('register', 'UserController@registerSubmit');

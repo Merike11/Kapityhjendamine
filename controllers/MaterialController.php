@@ -24,6 +24,7 @@ class MaterialController
             $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
             $ingredient = $app['database']->selectById('ingredients', $id);
             return view('material_edit', compact('ingredient')); 
+         
         } 
              
     }    

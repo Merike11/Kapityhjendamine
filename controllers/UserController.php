@@ -61,5 +61,15 @@ class UserController
     {
         session_destroy();
         header('Location: /login');
-    }     
+    }
+    public function register() {
+        return view('register');
+    }
+    public function registerSubmit() {
+        $username = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        global $app;
+        $user = $app['database']->getUserByEmail('user', $username);
+        var_dump($user);
+    }
+
 }
